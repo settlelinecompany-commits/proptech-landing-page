@@ -194,13 +194,9 @@ export default function Home() {
             ].map((agent, i) => (
               <div key={i} className="text-center group">
                 <div
-                  className={`w-32 h-32 mx-auto mb-3 rounded-full bg-gradient-to-br ${agent.color} overflow-hidden shadow-lg group-hover:scale-105 transition-transform`}
+                  className={`w-32 h-32 mx-auto mb-3 rounded-full bg-gradient-to-br ${agent.color} overflow-hidden shadow-lg group-hover:scale-105 transition-transform flex items-center justify-center`}
                 >
-                  <img
-                    src={`/.jpg?height=128&width=128&query=${agent.query}`}
-                    alt={agent.name}
-                    className="w-full h-full object-cover"
-                  />
+                  <span className="text-4xl font-bold text-white">{agent.name[0]}</span>
                 </div>
                 <h3 className="font-bold text-lg">{agent.name}</h3>
                 <p className="text-sm text-muted-foreground">{agent.role}</p>
@@ -482,12 +478,8 @@ export default function Home() {
                 className="p-6 hover:shadow-xl transition-all group cursor-pointer border-2 hover:border-blue-200"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${persona.color} overflow-hidden`}>
-                    <img
-                      src={`/.jpg?height=64&width=64&query=${persona.query}`}
-                      alt={persona.name}
-                      className="w-full h-full object-cover"
-                    />
+                  <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${persona.color} overflow-hidden flex items-center justify-center`}>
+                    <span className="text-2xl font-bold text-white">{persona.name[0]}</span>
                   </div>
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold mb-1">{persona.name}</h3>
