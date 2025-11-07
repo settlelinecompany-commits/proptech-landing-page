@@ -582,21 +582,14 @@ export default function Home() {
               { name: "Salesforce" },
               { name: "AppFolio" },
               { name: "Buildium" },
-              { name: "WhatsApp", icon: Smartphone, color: "text-green-500" },
-              { name: "Calendar", icon: Calendar, color: "text-green-600" },
+              { name: "WhatsApp" },
+              { name: "Calendar" },
             ].map((integration, i) => (
               <Card
                 key={i}
                 className="p-6 hover:shadow-lg transition-all hover:scale-110 cursor-pointer border-2 hover:border-blue-200 min-w-[140px]"
               >
-                {integration.icon ? (
-                  <>
-                    <integration.icon className={`w-12 h-12 mx-auto mb-2 ${integration.color}`} />
-                    <p className="text-sm font-bold text-center text-gray-800">{integration.name}</p>
-                  </>
-                ) : (
-                  <p className="text-base font-bold text-center text-gray-800">{integration.name}</p>
-                )}
+                <p className="text-base font-bold text-center text-gray-800">{integration.name}</p>
               </Card>
             ))}
           </div>
