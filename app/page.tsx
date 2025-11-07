@@ -46,6 +46,14 @@ export default function Home() {
 
     try {
       const supabase = createClient()
+      if (!supabase) {
+        toast({
+          title: "Configuration error",
+          description: "Please contact us directly to join the waitlist.",
+          variant: "destructive",
+        })
+        return
+      }
       const { error } = await supabase.from("waitlist").insert([{ email, source: "landing_page" }])
 
       if (error) {
