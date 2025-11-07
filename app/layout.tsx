@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "PropertyAI - Your 24/7 AI Property Management Team",
   description:
-    "Meet Layla, Riya, Omar, and Farah — AI agents that handle leasing, residents, operations, and finance so your team can focus on growth.",
+    "Four friendly AI teammates that sit on top of your CRM and handle leasing, residents, maintenance—and roll it all up for you every morning.",
   generator: "v0.app",
   icons: {
     icon: [

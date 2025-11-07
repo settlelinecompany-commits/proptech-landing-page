@@ -23,6 +23,11 @@ import {
   Users,
   Briefcase,
   LineChart,
+  Wrench,
+  Calendar,
+  LayoutDashboard,
+  CreditCard,
+  Smartphone,
 } from "lucide-react"
 import Link from "next/link"
 import { useToast } from "@/hooks/use-toast"
@@ -90,8 +95,8 @@ export default function Home() {
             <Link href="#team" className="text-sm hover:text-blue-600 transition-colors">
               The Team
             </Link>
-            <Link href="#impact" className="text-sm hover:text-blue-600 transition-colors">
-              Impact
+            <Link href="#dashboard" className="text-sm hover:text-blue-600 transition-colors">
+              Dashboard
             </Link>
           </div>
           <div className="flex items-center gap-3">
@@ -110,14 +115,9 @@ export default function Home() {
       <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-blue-50 via-white to-violet-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
-            <Badge className="mb-6 bg-yellow-400 text-black hover:bg-yellow-500 border-0">
-              <Sparkles className="w-3 h-3 mr-1" />
-              Dubai-ready & Global
-            </Badge>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">Meet Your 24/7 AI Property Team</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">Your 24/7 AI Property Team</h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty leading-relaxed">
-              Five AI agents that handle leasing, residents, operations, finance, and landlord updates. They never sleep
-              — so you don't have to.
+              Four friendly AI teammates that sit on top of your CRM and handle leasing, residents, maintenance—and roll it all up for you every morning.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
               <Button
@@ -140,61 +140,55 @@ export default function Home() {
             {/* KPI Strip */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-16">
               <div className="text-center">
+                <Clock className="w-8 h-8 mx-auto mb-2 text-blue-600" />
                 <div className="text-3xl font-bold text-blue-600 mb-1">&lt;60s</div>
                 <div className="text-sm text-muted-foreground">Response Time</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-1">+30%</div>
+                <Calendar className="w-8 h-8 mx-auto mb-2 text-blue-600" />
+                <div className="text-3xl font-bold text-blue-600 mb-1">+20–30%</div>
                 <div className="text-sm text-muted-foreground">More Tours</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-1">24/7</div>
-                <div className="text-sm text-muted-foreground">Available</div>
+                <Wrench className="w-8 h-8 mx-auto mb-2 text-blue-600" />
+                <div className="text-3xl font-bold text-blue-600 mb-1">↑ First-time-fix</div>
+                <div className="text-sm text-muted-foreground">Rate</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-1">90%</div>
-                <div className="text-sm text-muted-foreground">Auto-Resolved</div>
+                <Globe className="w-8 h-8 mx-auto mb-2 text-blue-600" />
+                <div className="text-3xl font-bold text-blue-600 mb-1">100+</div>
+                <div className="text-sm text-muted-foreground">Languages</div>
               </div>
             </div>
           </div>
 
           {/* Agent Images Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {[
               {
                 name: "Layla",
                 role: "Leasing",
                 color: "from-blue-500 to-blue-600",
-                query: "professional female leasing agent headshot portrait",
               },
               {
                 name: "Riya",
                 role: "Residents",
                 color: "from-pink-500 to-pink-600",
-                query: "professional female resident services agent headshot portrait",
+              },
+              {
+                name: "Fahd",
+                role: "Maintenance",
+                color: "from-green-500 to-green-600",
               },
               {
                 name: "Omar",
                 role: "Operations",
-                color: "from-green-500 to-green-600",
-                query: "professional male operations manager headshot portrait",
-              },
-              {
-                name: "Farah",
-                role: "Finance",
                 color: "from-purple-500 to-purple-600",
-                query: "professional female finance coordinator headshot portrait",
-              },
-              {
-                name: "Nour",
-                role: "Landlord Agent",
-                color: "from-yellow-400 to-yellow-500",
-                query: "professional female landlord relations agent headshot portrait",
               },
             ].map((agent, i) => (
               <div key={i} className="text-center group">
                 <div
-                  className={`w-32 h-32 mx-auto mb-3 rounded-full bg-gradient-to-br ${agent.color} overflow-hidden shadow-lg group-hover:scale-105 transition-transform flex items-center justify-center`}
+                  className={`w-32 h-32 mx-auto mb-3 rounded-full bg-gradient-to-br ${agent.color} overflow-hidden shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300 flex items-center justify-center`}
                 >
                   <span className="text-4xl font-bold text-white">{agent.name[0]}</span>
                 </div>
@@ -206,7 +200,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works - Brickwise Style */}
+      {/* How It Works */}
       <section id="how-it-works" className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16">
@@ -297,7 +291,7 @@ export default function Home() {
                   <h3 className="text-2xl font-bold">Maintenance request</h3>
                 </div>
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                  Omar triages the issue, contacts your approved vendors, schedules the fix, and keeps everyone updated.
+                  Fahd captures the issue, creates clean work orders, schedules the fix, and keeps everyone updated.
                   No chasing, no delays.
                 </p>
               </div>
@@ -324,70 +318,36 @@ export default function Home() {
                   <div className="w-10 h-10 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center text-lg">
                     4
                   </div>
-                  <h3 className="text-2xl font-bold">Invoices & books</h3>
+                  <h3 className="text-2xl font-bold">Daily roll-up</h3>
                 </div>
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                  Farah generates invoices, tracks payments, reconciles accounts, and syncs everything to your
-                  accounting software. Books balanced, automatically.
+                  Omar pulls updates from Layla, Riya, and Fahd, then shows you one clean dashboard every morning.
+                  Tours, tickets, move-ins/outs, renewals — clear priorities, zero noise.
                 </p>
               </div>
               <div className="flex-1">
                 <Card className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200">
-                  <div className="space-y-3">
-                    <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Monthly Revenue</span>
-                      <span className="font-bold text-purple-600">AED 285,000</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Outstanding</span>
-                      <span className="font-bold">AED 12,500</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Invoices Sent</span>
-                      <span className="font-bold">24 / 24</span>
-                    </div>
-                    <div className="h-px bg-purple-200 my-2" />
-                    <p className="text-xs text-muted-foreground">✓ Synced to QuickBooks</p>
-                  </div>
-                </Card>
-              </div>
-            </div>
-
-            {/* Step 5 */}
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-full bg-yellow-400 text-black font-bold flex items-center justify-center text-lg">
-                    5
-                  </div>
-                  <h3 className="text-2xl font-bold">Landlord updates</h3>
-                </div>
-                <p className="text-muted-foreground text-lg leading-relaxed">
-                  Nour sends real-time portfolio summaries to your owners. Occupancy rates, revenue, maintenance status
-                  — all automated, all accurate.
-                </p>
-              </div>
-              <div className="flex-1">
-                <Card className="p-6 bg-gradient-to-br from-yellow-50 to-yellow-100 border-yellow-200">
-                  <h4 className="font-bold mb-3">Marina Tower - March Summary</h4>
+                  <h4 className="font-bold mb-3">Today's Summary</h4>
                   <div className="grid grid-cols-2 gap-3 text-sm">
                     <div>
-                      <p className="text-muted-foreground">Occupancy</p>
-                      <p className="font-bold">95%</p>
+                      <p className="text-muted-foreground">Tours booked</p>
+                      <p className="font-bold">12</p>
                     </div>
                     <div>
-                      <p className="text-muted-foreground">Revenue</p>
-                      <p className="font-bold">↑ 8%</p>
+                      <p className="text-muted-foreground">Open tickets</p>
+                      <p className="font-bold">8</p>
                     </div>
                     <div>
-                      <p className="text-muted-foreground">Renewals</p>
-                      <p className="font-bold">4 / 5</p>
+                      <p className="text-muted-foreground">Move-ins today</p>
+                      <p className="font-bold">2</p>
                     </div>
                     <div>
-                      <p className="text-muted-foreground">Tickets</p>
-                      <p className="font-bold">All closed</p>
+                      <p className="text-muted-foreground">Renewals due</p>
+                      <p className="font-bold">4</p>
                     </div>
                   </div>
+                  <div className="h-px bg-purple-200 my-3" />
+                  <p className="text-xs text-muted-foreground">✓ Only what needs you</p>
                 </Card>
               </div>
             </div>
@@ -399,78 +359,57 @@ export default function Home() {
       <section id="team" className="py-20 px-4 bg-gradient-to-br from-blue-50 to-violet-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Your AI Team</h2>
+            <h2 className="text-4xl font-bold mb-4">Meet the Team</h2>
             <p className="text-lg text-muted-foreground">
-              Five specialists, one mission: automate your property operations
+              Four friendly AI teammates that work together seamlessly
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {[
               {
                 name: "Layla",
-                role: "Leasing Agent",
-                tagline: "Never miss a tour slot",
+                tagline: "The Matchmaker",
+                role: "Leasing",
                 color: "from-blue-500 to-blue-600",
-                icon: Users,
-                query: "professional female leasing agent headshot portrait",
-                desc: "Qualifies leads, answers inquiries 24/7, books property tours instantly.",
-                metrics: [
-                  { label: "Lead-to-Lease", value: "↑25%" },
-                  { label: "Response", value: "<60s" },
-                ],
+                talksTo: "Tenants/prospects (WhatsApp/website)",
+                superpower: "Books tours fast and keeps conversation warm",
+                goals: ["↑ Lead→Lease", "↓ Response time", "+20–30% more tours"],
+                loop: "Instant reply → slot offer → confirm → remind → follow-up → (flag for human if needed)",
+                whatPMSees: "More tours on calendar, fewer drop-offs",
               },
               {
                 name: "Riya",
-                role: "Resident Services",
-                tagline: "Your residents, always heard",
+                tagline: "Tenant's Best Friend",
+                role: "Resident",
                 color: "from-pink-500 to-pink-600",
-                icon: MessageCircle,
-                query: "professional female resident services agent headshot portrait",
-                desc: "Handles move-ins, rent reminders, resident questions, and renewals.",
-                metrics: [
-                  { label: "Renewals", value: "↑20%" },
-                  { label: "Satisfaction", value: "95%" },
-                ],
+                talksTo: "Tenants (chat, voice, app) - speaks 100+ languages",
+                superpower: "Friendly answers, smooth move-ins/renewals, gentle rent nudges",
+                goals: ["↑ CSAT/NPS", "↑ Renewals", "↑ On-time payments"],
+                loop: "Answer anything → welcome kit & checklist → reminders (rent/amenities) → renewal nudges → move-out checklist",
+                whatPMSees: "Fewer 'any update?' pings, earlier renewal decisions",
+              },
+              {
+                name: "Fahd",
+                tagline: "Mr. Fix-It",
+                role: "Maintenance",
+                color: "from-green-500 to-green-600",
+                talksTo: "Tenants (intake only). Logs everything to CRM",
+                superpower: "Turns chaos into clean work orders that techs can close fast",
+                goals: ["↓ Time-to-ack", "↑ First-time-fix", "↓ Unnecessary dispatches"],
+                loop: "Capture issue (photos/video) → quick troubleshooting → create ticket (clear priority) → status nudges → close & feedback",
+                whatPMSees: "Fewer repeats, faster turnarounds, clean proof-of-work",
               },
               {
                 name: "Omar",
-                role: "Operations Manager",
-                tagline: "No ticket left hanging",
-                color: "from-green-500 to-green-600",
-                icon: Zap,
-                query: "professional male operations manager headshot portrait",
-                desc: "Triages maintenance, coordinates vendors, ensures SLA compliance.",
-                metrics: [
-                  { label: "SLA", value: "↑35%" },
-                  { label: "Resolution", value: "↓40%" },
-                ],
-              },
-              {
-                name: "Farah",
-                role: "Finance Coordinator",
-                tagline: "Books balanced before breakfast",
+                tagline: "Right-Hand Man",
+                role: "Operations",
                 color: "from-purple-500 to-purple-600",
-                icon: Briefcase,
-                query: "professional female finance coordinator headshot portrait",
-                desc: "Automates invoicing, tracks payments, reconciles accounts, generates reports.",
-                metrics: [
-                  { label: "Speed", value: "↑85%" },
-                  { label: "Accuracy", value: "99.9%" },
-                ],
-              },
-              {
-                name: "Nour",
-                role: "Landlord Agent",
-                tagline: "Your portfolio on autopilot",
-                color: "from-yellow-400 to-yellow-500",
-                icon: LineChart,
-                query: "professional female landlord relations agent headshot portrait",
-                desc: "Updates landlords with real-time portfolio insights and revenue summaries.",
-                metrics: [
-                  { label: "Manual Work", value: "↓60%" },
-                  { label: "Updates", value: "Real-time" },
-                ],
+                talksTo: "Layla, Riya, Fahd (to collect updates) and PMC/Landlord (to report)",
+                superpower: "One clean daily picture of whole portfolio. No tenant chat.",
+                goals: ["↑ Operational clarity", "↓ Admin time", "↑ On-time actions"],
+                loop: "Pulls updates from agents → cleans numbers → shows today's priorities → saves proofs → pings only when action needed",
+                whatPMSees: "Daily dashboard with tours, tickets, move-ins/outs, renewals",
               },
             ].map((persona, i) => (
               <Card
@@ -478,23 +417,40 @@ export default function Home() {
                 className="p-6 hover:shadow-xl transition-all group cursor-pointer border-2 hover:border-blue-200"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${persona.color} overflow-hidden flex items-center justify-center`}>
+                  <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${persona.color} overflow-hidden flex items-center justify-center group-hover:scale-110 transition-transform`}>
                     <span className="text-2xl font-bold text-white">{persona.name[0]}</span>
                   </div>
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold mb-1">{persona.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-1">{persona.role}</p>
-                    <p className="text-sm font-medium italic text-blue-600">"{persona.tagline}"</p>
+                    <p className="text-sm font-medium italic text-blue-600 mb-1">"{persona.tagline}"</p>
+                    <p className="text-sm text-muted-foreground">{persona.role}</p>
                   </div>
                 </div>
-                <p className="text-muted-foreground mb-4 leading-relaxed">{persona.desc}</p>
-                <div className="flex gap-3">
-                  {persona.metrics.map((metric, j) => (
-                    <div key={j} className="bg-blue-50 rounded-lg px-3 py-2 flex-1">
-                      <div className="text-xs text-muted-foreground mb-1">{metric.label}</div>
-                      <div className="font-bold text-blue-600">{metric.value}</div>
+                
+                <div className="space-y-3 mb-4">
+                  <div>
+                    <p className="text-xs font-semibold text-muted-foreground uppercase mb-1">Talks to</p>
+                    <p className="text-sm">{persona.talksTo}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-muted-foreground uppercase mb-1">Superpower</p>
+                    <p className="text-sm font-medium">{persona.superpower}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-muted-foreground uppercase mb-1">Goals</p>
+                    <div className="flex flex-wrap gap-2">
+                      {persona.goals.map((goal, j) => (
+                        <Badge key={j} variant="outline" className="text-xs">
+                          {goal}
+                        </Badge>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t">
+                  <p className="text-xs font-semibold text-muted-foreground uppercase mb-1">What PM sees</p>
+                  <p className="text-sm text-muted-foreground">{persona.whatPMSees}</p>
                 </div>
               </Card>
             ))}
@@ -502,82 +458,168 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Impact */}
-      <section id="impact" className="py-20 px-4 bg-white">
+      {/* What You See Each Morning - Omar's Dashboard */}
+      <section id="dashboard" className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">The impact</h2>
-            <p className="text-lg text-muted-foreground">Real results from property teams using AI</p>
+            <h2 className="text-4xl font-bold mb-4">What You See Each Morning</h2>
+            <p className="text-lg text-muted-foreground">Omar's daily roll-up—clear priorities, zero noise</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { metric: "Lead-to-Lease", value: "↑25%", icon: TrendingUp },
-              { metric: "Response Time", value: "<60s", icon: Clock },
-              { metric: "Renewals", value: "↑20%", icon: CheckCircle2 },
-              { metric: "SLA Compliance", value: "↑35%", icon: Building2 },
-            ].map((item, i) => (
-              <Card
-                key={i}
-                className="p-6 text-center hover:shadow-lg transition-shadow bg-gradient-to-br from-white to-blue-50 border-blue-100"
-              >
-                <item.icon className="w-10 h-10 mx-auto mb-4 text-blue-600" />
-                <div className="text-3xl font-bold text-blue-600 mb-2">{item.value}</div>
-                <div className="text-sm text-muted-foreground font-medium">{item.metric}</div>
+          <Card className="p-8 bg-gradient-to-br from-white to-blue-50 border-blue-200">
+            <div className="mb-6">
+              <h3 className="text-2xl font-bold mb-2">Today's Numbers</h3>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              {/* Leasing */}
+              <Card className="p-6 bg-white border-2">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="font-bold text-lg">Leasing</h4>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Tours booked</span>
+                    <span className="font-bold">12</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">No-show risk</span>
+                    <span className="font-bold text-amber-600">2</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Hot leads</span>
+                    <span className="font-bold text-blue-600">5</span>
+                  </div>
+                </div>
               </Card>
-            ))}
-          </div>
+
+              {/* Maintenance */}
+              <Card className="p-6 bg-white border-2">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="font-bold text-lg">Maintenance</h4>
+                  <div className="w-3 h-3 rounded-full bg-amber-500"></div>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">New WOs</span>
+                    <span className="font-bold">3</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Open</span>
+                    <span className="font-bold">8</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Overdue</span>
+                    <span className="font-bold text-red-600">1</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">SLA status</span>
+                    <span className="font-bold text-green-600">95%</span>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Residents */}
+              <Card className="p-6 bg-white border-2">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="font-bold text-lg">Residents</h4>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Move-ins today</span>
+                    <span className="font-bold">2</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Renewals due</span>
+                    <span className="font-bold text-amber-600">4</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Move-outs this week</span>
+                    <span className="font-bold">1</span>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            <div className="pt-6 border-t">
+              <h4 className="font-bold text-lg mb-3">Only what needs you</h4>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-amber-500"></div>
+                  <span>2 tour confirmations pending</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                  <span>1 maintenance ticket requires approval</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                  <span>Renewal decision needed: Unit 3B (3 days)</span>
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
       </section>
 
-      {/* Dubai Features */}
+      {/* Plugs Into Your Stack */}
       <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
-            <Badge className="mb-4 bg-yellow-400 text-black hover:bg-yellow-500 border-0">
-              <Globe className="w-3 h-3 mr-1" />
-              Built for Dubai & NRI Investors
-            </Badge>
-            <h2 className="text-4xl font-bold mb-4">Cross-border made simple</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Specialized features for Dubai properties and global owners
+            <h2 className="text-4xl font-bold mb-4">Plugs Right Into Your CRM</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
+              No need to replace what you use — our agents plug in, sync, and start working instantly.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
             {[
-              {
-                title: "Ejari Sync",
-                desc: "Auto lease verification",
-                icon: FileText,
-                color: "text-blue-600",
-              },
-              {
-                title: "Multi-Currency",
-                desc: "AED / USD / INR conversion",
-                icon: DollarSign,
-                color: "text-green-600",
-              },
-              {
-                title: "Tax Integration",
-                desc: "RNOR / Form 67 support",
-                icon: CheckCircle2,
-                color: "text-purple-600",
-              },
-              {
-                title: "Bilingual UI",
-                desc: "Arabic + English",
-                icon: Languages,
-                color: "text-pink-600",
-              },
-            ].map((feature, i) => (
-              <Card key={i} className="p-6 text-center hover:shadow-lg transition-shadow">
-                <feature.icon className={`w-10 h-10 mx-auto mb-4 ${feature.color}`} />
-                <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.desc}</p>
+              { name: "Yardi" },
+              { name: "HubSpot" },
+              { name: "Zoho" },
+              { name: "Salesforce" },
+              { name: "AppFolio" },
+              { name: "Buildium" },
+              { name: "WhatsApp", icon: Smartphone, color: "text-green-500" },
+              { name: "Calendar", icon: Calendar, color: "text-green-600" },
+            ].map((integration, i) => (
+              <Card
+                key={i}
+                className="p-6 hover:shadow-lg transition-all hover:scale-110 cursor-pointer border-2 hover:border-blue-200 min-w-[140px]"
+              >
+                {integration.icon ? (
+                  <>
+                    <integration.icon className={`w-12 h-12 mx-auto mb-2 ${integration.color}`} />
+                    <p className="text-sm font-bold text-center text-gray-800">{integration.name}</p>
+                  </>
+                ) : (
+                  <p className="text-base font-bold text-center text-gray-800">{integration.name}</p>
+                )}
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Proof & Love */}
+      <section id="impact" className="py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">Proof & Love</h2>
+          </div>
+
+          <Card className="p-8 bg-gradient-to-br from-white to-blue-50 border-blue-200">
+            <div className="text-center">
+              <p className="text-xl text-muted-foreground italic mb-6 leading-relaxed">
+                "Response times dropped under a minute and we stopped chasing updates. The dashboard tells me exactly what matters."
+              </p>
+              <p className="text-sm font-medium text-muted-foreground">
+                — Property Manager, Dubai
+              </p>
+            </div>
+          </Card>
         </div>
       </section>
 
@@ -645,3 +687,4 @@ export default function Home() {
     </div>
   )
 }
+
